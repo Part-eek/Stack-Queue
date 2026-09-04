@@ -24,7 +24,7 @@ string in2Po(string &s){
             st.pop();
         }
         else{
-            while(!st.empty() && priority(s[i])<priority(st.top()) ){
+            while(!st.empty() && priority(s[i])<=priority(st.top()) ){
                 ans+=st.top();
                 st.pop();
             }
