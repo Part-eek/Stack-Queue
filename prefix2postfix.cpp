@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-string pre2inf(string s){
+string pre2pos(string s){
+    stack<string>st;
     int n = s.length();
     int i = n-1;
-    stack<string>st;
 
     while(i>=0){
         if((s[i]>='A' && s[i]<='Z') || (s[i]>='a' && s[i]<='z') || (s[i]>='0' && s[i]<='9')) st.push(string(1,s[i]));
@@ -14,8 +14,7 @@ string pre2inf(string s){
             string t2 = st.top();
             st.pop();
 
-            string ans = '('+t1+s[i]+t2+')';
-            st.push(ans);
+            st.push(t1+t2+s[i]);
         }
         i--;
     }
@@ -23,8 +22,6 @@ string pre2inf(string s){
 }
 
 int main(){
-    string s = "*+PQ-MN";
-    cout<<pre2inf(s);
-
-    return 0;
+    string s = "/-AB*+DEF";
+    cout<<pre2pos(s);
 }
