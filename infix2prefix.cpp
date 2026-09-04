@@ -64,4 +64,6 @@ int main()
 {
     string s = "(a+b)*c-d+f";
     cout<<in2Pre(s);
+
+    return 0;
 }

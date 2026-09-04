@@ -43,4 +43,6 @@ int main()
 {
     string s = "a+b*(c^d-e)";
     cout<<in2Po(s);
+
+    return 0;
 }

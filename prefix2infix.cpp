@@ -1,29 +1,28 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-string po2in(string s){
-    int i = 0;
+string pre2inf(string s){
     int n = s.length();
+    int i = n-1;
     stack<string>st;
 
-    while(i<n){
+    while(i>=0){
         if((s[i]>='A' && s[i]<='Z') || (s[i]>='a' && s[i]<='z') || (s[i]>='0' && s[i]<='9')) st.push(string(1,s[i]));
         else{
             string t1 = st.top();
             st.pop();
             string t2 = st.top();
             st.pop();
-            string ans = '(' + t2 + s[i] + t1 + ')';
+
+            string ans = '('+t1+s[i]+t2+')';
             st.push(ans);
         }
-        i++;
+        i--;
     }
     return st.top();
 }
 
 int main(){
-    string s = "AB-DE+F*/";
-    cout<<po2in(s);
-
-    return 0;
+    string s = "*+PQ-MN";
+    cout<<pre2inf(s);
 }
